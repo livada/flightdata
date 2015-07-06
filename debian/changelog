@@ -1,5 +1,7 @@
-flightdata (0.1-1) UNRELEASED; urgency=medium
+flightdata (0.1-1) trusty; urgency=medium
 
   * Initial release.
+  * Initial upstream branch.
+  * Imported Upstream version 0.1
 
- -- Davor Bokun <bokundavor@gmail.com>  Mon, 06 Jul 2015 09:10:34 +0200
+ -- Davor Bokun <bokundavor@gmail.com>  Mon, 06 Jul 2015 09:14:00 +0200
