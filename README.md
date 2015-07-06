@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Usage
 =====
 
+```
 flight2kml [-h] input.csv [output.kml]
 
 positional arguments:
@@ -33,7 +34,7 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
-
+```
 
 
 
