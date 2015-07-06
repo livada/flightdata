@@ -1,0 +1,10 @@
+Source: flightdata
+Maintainer: Davor Bokun <bokundavor@gmail.com>
+Section: misc
+Priority: optional
+Build-Depends: debhelper (>= 9), scons (>= 2.3.0)
+
+Package: flightdata
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: CGR-30P Flight Data Recording to Google Earth KML converter
