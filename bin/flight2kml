@@ -1,6 +1,8 @@
+#! /usr/bin/python
+import sys
 from kml import KMLDocument, KMLTrack
 
-with open('Flt0508_20150611F_2.csv') as f:
+with open(sys.argv[1]) as f:
     info = {}
     header = None
     data = []
@@ -26,7 +28,7 @@ indices = dict([(k, v) for v, k in enumerate(header)])
 
 track = KMLTrack('Example track') #, altitude_mode='absolute')
 
-SHOWING_KEYWORDS = 'FUEL oil RPM'.split()
+SHOWING_KEYWORDS = ['rpm'] # 'FUEL oil RPM'.split()
 showing_indices = sorted([i for k, i in indices.iteritems() if any([(key.lower() in k.lower()) for key in SHOWING_KEYWORDS])])
 
 # print [header[i] for i in showing]
