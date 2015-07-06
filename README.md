@@ -1,4 +1,7 @@
-# flightdata
+flightdata
+==========
+
+
 CGR-30P Flight Data Recording to Google Earth KML converter
 
 
@@ -17,3 +20,21 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Usage
+=====
+
+flight2kml [-h] input.csv [output.kml]
+
+positional arguments:
+  input.csv   input csv CGR-30P log file
+  output.kml  output Google Earth kml file
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+
+
+
+

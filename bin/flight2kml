@@ -1,8 +1,54 @@
 #! /usr/bin/python
-import sys
-from kml import KMLDocument, KMLTrack
+'''CGR-30P Flight Data Recording to Google Earth KML converter.
+'''
 
-with open(sys.argv[1]) as f:
+__author__ = "Davor Bokun"
+__copyright__ = "Copyright (C) 2015 Davor Bokun <bokundavor@gmail.com>"
+__credits__ = ["Davor Bokun"]
+__license__ = "GPLv3"
+__version__ = '0.1'
+__maintainer__ = "Davor Bokun"
+__email__ = "bokundavor@gmail.com"
+__status__ = "Alpha"
+
+import sys
+
+if __name__!='__main__':
+    # Do not allow importing as module
+    sys.exit()
+    
+
+try:
+    import kml
+except ImportError:
+    import os
+    pymodules_path = os.path.join(os.path.dirname(__file__),
+                                  '../share/pyshared/flightdata')
+    sys.path.append(pymodules_path)
+
+
+
+from kml import KMLDocument, KMLTrack
+import argparse
+
+parser = argparse.ArgumentParser(
+    description='CGR-30P Flight Data Recording to Google Earth KML converter.'
+    )
+
+
+parser.add_argument('input_csv', type=str, 
+                     metavar='input.csv',
+                     help='input csv CGR-30P log file')
+parser.add_argument('output_kml', type=str, 
+                     metavar='output.kml', nargs='?',
+                     default='flightdata_output.kml', 
+                     help='output Google Earth kml file')
+
+args = parser.parse_args()
+
+
+
+with open(args.input_csv) as f:
     info = {}
     header = None
     data = []
@@ -28,7 +74,7 @@ indices = dict([(k, v) for v, k in enumerate(header)])
 
 track = KMLTrack('Example track') #, altitude_mode='absolute')
 
-SHOWING_KEYWORDS = ['rpm'] # 'FUEL oil RPM'.split()
+SHOWING_KEYWORDS = [] # 'FUEL oil RPM'.split()
 showing_indices = sorted([i for k, i in indices.iteritems() if any([(key.lower() in k.lower()) for key in SHOWING_KEYWORDS])])
 
 # print [header[i] for i in showing]
@@ -68,4 +114,9 @@ for d in data:
 doc = KMLDocument('Flight Data Recording')
 doc.objects.append(track)
 
-print doc
+# print doc
+
+with open(args.output_kml, 'w') as f:
+    f.write(str(doc))
+
+
