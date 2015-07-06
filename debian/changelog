@@ -1,3 +1,9 @@
+flightdata (0.2-1) trusty; urgency=medium
+
+  * Imported Upstream version 0.2
+
+ -- Davor Bokun <bokundavor@gmail.com>  Mon, 06 Jul 2015 13:25:16 +0200
+
 flightdata (0.1-1) trusty; urgency=medium
 
   * Initial release.
