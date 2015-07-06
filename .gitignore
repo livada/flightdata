@@ -3,3 +3,4 @@
 *.csv
 *.kmz
 *.pyc
+/.sconsign.dblite
